@@ -1,9 +1,9 @@
 # README #
 
-
 ### What is this repository for? ###
 
 The IOexp libary is a simple libary that it makes easier to work with the pcf8574 IO expander.
+
 Current Version : 0.9
 
 * [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
@@ -126,19 +126,6 @@ myIOexpander.fullwrite(0x0);
 
 ```
 
-
-
-* Configuration
-* Dependencies
-* Database configuration
-* How to run tests
-* Deployment instructions
-
-### Contribution guidelines ###
-
-* Writing tests
-* Code review
-* Other guidelines
 
 ### Who do I talk to? ###
 
