@@ -129,5 +129,4 @@ myIOexpander.fullwrite(0x0);
 
 ### Who do I talk to? ###
 
-* Repo owner or admin
-* Other community or team contact
+* Repo owner or admin.
