@@ -37,14 +37,16 @@ The address must be 7 bit. For a pfc8574P with A2 A1 and A0 set to 0 you could d
 * Don't forget to add the Wire.begin(); to your setup function!!
 * When a function requests a pin, you should use the datasheet definition (P0 though P7) !
     
-After the above steps, you will have several functions avaliable to set and read the IO's of your IO expander.
-these are ( for simplicity sake in this examples i use myIOexpander, but this should be replaced by the instance name you used then you declared your IOexp instance...)
+After the above steps, you will have several functions available to set and read the IO's of your IO expander.
+For simplicity sake in this examples I use "myIOexpander" , but this should be replaced by the instance name you used then you declared your IOexp instance.
 
 Refer to the IOExp.h for the all the functions definitions.
+
 An example is also provided with the library.
 
 
 The following function allows to read a single pin's status (it returns true if the the IO is HIGH of false if LOW).
+
 ```
 #!c++
 bool read(int pin); 
