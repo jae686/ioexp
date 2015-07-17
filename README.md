@@ -6,8 +6,6 @@ The IOexp libary is a simple libary that it makes easier to work with the pcf857
 
 Current Version : 0.9
 
-* [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
-
 ### How do I get set up? ###
 
 * Installation Procedure : It is installed in the same way as any regular arduino library. 
@@ -45,7 +43,7 @@ Refer to the IOExp.h for the all the functions definitions.
 An example is also provided with the library.
 
 
-The following function allows to read a single pin's status (it returns true if the the IO is HIGH of false if LOW).
+#### The following function allows to read a single pin's status (it returns true if the the IO is HIGH of false if LOW). ####
 
 ```
 #!c++
@@ -70,7 +68,7 @@ myIOexpander.read(P5);
 
 ```
 
-The following function sets the given pin to HIGH is status == true or to LOW if status == false
+#### The following function sets the given pin to HIGH is status == true or to LOW if status == false ####
 ```
 #!c++
 void write(int pin, bool status);
@@ -87,16 +85,16 @@ myIOexpander.write(P0, true);
 ```
 
 
-The toggle(int pin); function just toggles a given pin status (If the pin is HIGH, the function set's the pin as LOW. If the pin is LOW, it set's the pin as HIGH).
+#### The toggle(int pin); function just toggles a given pin status (If the pin is HIGH, the function set's the pin as LOW. If the pin is LOW, it set's the pin as HIGH). ####
 ```
 #!c++
 void toggle(int pin);
 
 ```
 
-The fullread and fullwrite functions allows to read and write to all IO's an the same time. Useful to get a byte with the IO status to perform byte wise operations on.
+#### The fullread and fullwrite functions allows to read and write to all IO's an the same time. Useful to get a byte with the IO status to perform byte wise operations on. ####
 
-The following function returns a byte read from the IC's IO pins.
+##### The following function returns a byte read from the IC's IO pins. #####
 
 ```
 #!c++
@@ -112,7 +110,7 @@ some_int = myIOexpander.fullread();
 
 ```
 
-The following function sets the IC's IO according to a supplied byte.     
+##### The following function sets the IC's IO according to a supplied byte. #####     
 
 ```
 #!c++
