@@ -1,6 +1,5 @@
 # README #
 
-This README would normally document whatever steps are necessary to get your application up and running.
 
 ### What is this repository for? ###
 
@@ -11,31 +10,48 @@ Current Version : 0.9
 
 ### How do I get set up? ###
 
-* Installation Procedure : It is installed in the same way as any regular library. 
+* Installation Procedure : It is installed in the same way as any regular arduino library. 
 
-Usage:
+### Usage ###
   
 Include the IOexp.h and Wire.h to your sketch
   
 Declare a IOexp instance before the setup() function.
-example : IOexp myIOexpander(address);
-note : The address must be 7 bit. For a pfc8574P with A2 A1 and A0 set to 0 you could define it as (0x4 << 3 | 0x0)
+
+Usage : 
+
+```
+#!c++
+IOexp myIOexpander(address);
+
+```
+
+The address must be 7 bit. For a pfc8574P with A2 A1 and A0 set to 0 you could define it as 
+
+```
+#!c++
+#define (0x4 << 3 | 0x0)
+
+```
   
-note : dont forget to add the Wire.begin(); to your setup function!!
-note 2 : when a function requests a pin, you should use the datasheet definition (P0 though P7) !
+* Don't forget to add the Wire.begin(); to your setup function!!
+* When a function requests a pin, you should use the datasheet definition (P0 though P7) !
     
 After the above steps, you will have several functions avaliable to set and read the IO's of your IO expander.
 these are ( for simplicity sake in this examples i use myIOexpander, but this should be replaced by the instance name you used then you declared your IOexp instance...)
 
+Refer to the IOExp.h for the all the functions definitions.
+An example is also provided with the library.
 
+
+The following function allows to read a single pin's status (it returns true if the the IO is HIGH of false if LOW).
 ```
 #!c++
-bool read(int pin); // it returns false if the the IO is HIGH of false if LOW. 
+bool read(int pin); 
 
 ```
     
-example : to read the P0 IO (check the datasheet!) you should type 
-
+Example : to read the P0 IO (check the datasheet!) you should type 
 
 ```
 #!c++
@@ -44,8 +60,7 @@ myIOexpander.read(P0);
 
 ```
 
-to read the P5 IO you use 
-
+To read the P5 IO you use 
 
 ```
 #!c++
@@ -53,19 +68,63 @@ myIOexpander.read(P5);
 
 ```
 
+The following function sets the given pin to HIGH is status == true or to LOW if status == false
+```
+#!c++
+void write(int pin, bool status);
 
-      
-void write(int pin, bool status); - it sets the given pin to HIGH is status == true or to LOW if status == false
+```
 
-example : to set P0 to HIGH you would use myIOexpander.write(P0, true);
-void toggle(int pin); - if the pin is HIGH, the funciont set's the pin as LOW. If the pin is LOW, it set's the pin as HIGH.
+example : to set P0 to HIGH you would use 
+
+
+```
+#!c++
+myIOexpander.write(P0, true);
+
+```
+
+
+The toggle(int pin); function just toggles a given pin status (If the pin is HIGH, the function set's the pin as LOW. If the pin is LOW, it set's the pin as HIGH).
+```
+#!c++
+void toggle(int pin);
+
+```
+
+The fullread and fullwrite functions allows to read and write to all IO's an the same time. Useful to get a byte with the IO status to perform byte wise operations on.
+
+The following function returns a byte read from the IC's IO pins.
+
+```
+#!c++
+int fullread();
+
+```
      
-                       
-int fullread(); - it return a byte read from the IC.
-example : some_int = myIOexpander.fullread();
-     
-void fullwrite(int to_write); - it writes to the IO expander the byte specified.
-example : myIOexpander(0x0); - it sets all IO's to LOW
+Example : 
+
+```
+#!c++
+some_int = myIOexpander.fullread();
+
+```
+
+The following function sets the IC's IO according to a supplied byte.     
+
+```
+#!c++
+void fullwrite(int to_write);
+
+```
+
+Example (it sets all IO's to LOW) : 
+
+```
+#!c++
+myIOexpander.fullwrite(0x0);
+
+```
 
 
 
